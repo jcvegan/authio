@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\data\identity\database\Authio.Data.Identity.DataBase.EntityFrameworkCore\Authio.Data.Identity.DataBase.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\data\identity\database\Authio.Data.Identity.DataBase.Initializer\Authio.Data.Identity.DataBase.Initializer.csproj" />
     <ProjectReference Include="..\data\identity\database\model\Authio.Data.Identity.DataBase.Model\Authio.Data.Identity.DataBase.Model.csproj" />
     <ProjectReference Include="..\data\identity\database\stores\Authio.Data.Identity.DataBase.Stores\Authio.Data.Identity.DataBase.Stores.csproj" />
   </ItemGroup>

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Authio.Data.Identity.DataBase.EntityFrameworkCore\Authio.Data.Identity.DataBase.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\model\Authio.Data.Identity.DataBase.Model\Authio.Data.Identity.DataBase.Model.csproj" />
+    <ProjectReference Include="..\stores\Authio.Data.Identity.DataBase.Stores\Authio.Data.Identity.DataBase.Stores.csproj" />
+  </ItemGroup>
+
+</Project>

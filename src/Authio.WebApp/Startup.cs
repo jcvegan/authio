@@ -16,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Authio.Data.Identity.DataBase.EntityFrameworkCore.Factory;
+using Authio.Data.Identity.DataBase.Initializer;
 
 namespace Authio.WebApp
 {
@@ -37,8 +38,17 @@ namespace Authio.WebApp
 
             services.AddDbContext<AuthioIdentityContext>(options => options.UseSqlite(Configuration.GetConnectionString("AuthioConnection")));
 
-            services.AddDefaultIdentity<AuthUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddUserStore<AuthioUserStore>().AddRoleStore<AuthioRoleStore>().AddClaimsPrincipalFactory<AuthUserClaimsPrincipalFactory>();
+            services.AddAuthioDatabase(optionsConnection =>
+                {
+                    optionsConnection.UseSqlite(Configuration.GetConnectionString("AuthioConnection"));
+                },
+                options =>
+                {
+                    options.SignIn.RequireConfirmedAccount = true;
+
+                    options.Password.RequiredLength = 12;
+                }
+            );
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
