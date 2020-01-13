@@ -2,7 +2,9 @@
 
 namespace Authio.Services.Common.Mail.Templating.Model
 {
-    public class Class1
+    public enum MailFormat
     {
+        Text,
+        Html
     }
 }
