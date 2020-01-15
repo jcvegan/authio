@@ -18,7 +18,7 @@ namespace Authio.Data.Identity.DataBase.Initializer
         {
             services.AddDbContext<AuthioIdentityContext>(optionsAction);
 
-            services.AddDefaultIdentity<AuthUser>(identityAction)
+            services.AddIdentity<AuthUser,AuthRole>(identityAction)
                 .AddRoles<AuthRole>()
                 .AddUserStore<AuthioUserStore>()
                 .AddRoleStore<AuthioRoleStore>()
